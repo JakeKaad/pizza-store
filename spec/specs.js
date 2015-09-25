@@ -57,47 +57,46 @@ describe('addPizza', function() {
 });
 
 describe('addDrink', function() {
-      it("Adds a drink to the order", function() {
-        var newOrder = new Order();
-        newOrder.addDrink("Pepsi");
-        newOrder.addDrink("Coke");
-        expect(newOrder.drinks[1]).to.equal("Coke");
+  it("Adds a drink to the order", function() {
+      var newOrder = new Order();
+      newOrder.addDrink("Pepsi");
+      newOrder.addDrink("Coke");
+      expect(newOrder.drinks[1]).to.equal("Coke");
+  });
+  it("Updates totalPrice", function() {
+      var newOrder = new Order();
+      newOrder.addDrink("Pepsi");
+      newOrder.addDrink("Coke");
+      expect(newOrder.totalPrice).to.equal(4);
   });
 });
 
 describe('addDessert', function() {
-      it("Adds a dessert to the order", function() {
-        var newOrder = new Order();
-        newOrder.addDessert("Cookies");
-        newOrder.addDessert("Cinna Stix");
-        expect(newOrder.desserts[1]).to.equal("Cinna Stix");
+  it("Adds a dessert to the order", function() {
+      var newOrder = new Order();
+      newOrder.addDessert("Cookies");
+      newOrder.addDessert("Cinna Stix");
+      expect(newOrder.desserts[1]).to.equal("Cinna Stix");
+  });
+  it("Updates total price of order", function() {
+      var newOrder = new Order();
+      newOrder.addDessert("Cookies");
+      newOrder.addDessert("Cinna Stix");
+      expect(newOrder.totalPrice).to.equal(10);
   });
 });
 
 describe('addExtra', function() {
-      it("Adds extras to the order", function() {
-        var newOrder = new Order();
-        newOrder.addExtra("garlic butter");
-        newOrder.addExtra("marinara");
-        expect(newOrder.extras[0]).to.equal("garlic butter");
+  it("Adds extras to the order", function() {
+      var newOrder = new Order();
+      newOrder.addExtra("garlic butter");
+      newOrder.addExtra("marinara");
+      expect(newOrder.extras[0]).to.equal("garlic butter");
   });
-});
-
-describe('calculateTotal', function() {
-      it("Calculates order total", function() {
-        var newOrder = new Order();
-        var newPizza = new Pizza("large")
-        newPizza.addTopping("jalapenos");
-        newPizza.addTopping("garlic");
-        newPizza.addTopping("bacon");
-        newPizza.calculatePrice(menu);
-        newOrder.addPizza(newPizza);
-
-        newOrder.addExtra("garlic butter");
-        newOrder.addExtra("marinara");
-        newOrder.addDessert("Cinna Stix");
-        newOrder.addDrink("Pepsi");
-        newOrder.calculateTotal();
-        expect(newOrder.totalPrice).to.equal(36);
+  it("Updates totalPrice", function() {
+      var newOrder = new Order();
+      newOrder.addExtra("garlic butter");
+      newOrder.addExtra("marinara");
+      expect(newOrder.totalPrice).to.equal(2);
   });
 });

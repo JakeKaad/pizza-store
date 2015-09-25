@@ -34,6 +34,7 @@ function Order() {
   this.drinks = [];
   this.desserts = [];
   this.extras = [];
+  this.sides = [];
 }
 
 Order.prototype.addPizza = function(pizza) {
@@ -43,41 +44,37 @@ Order.prototype.addPizza = function(pizza) {
 
 Order.prototype.addDrink = function(drink) {
   this.drinks.push(drink);
+  for(var j = 0; j < menu.drinks.length; j++) {
+    if(drink === menu.drinks[j].name) {
+      this.totalPrice += menu.drinks[j].price;
+    }
+  }
+}
+
+Order.prototype.addSide = function(side) {
+  this.sides.push(side);
+  for(var j = 0; j < menu.sides.length; j++) {
+    if(side === menu.sides[j].name) {
+      this.totalPrice += menu.sides[j].price;
+    }
+  }
 }
 
 Order.prototype.addDessert = function(dessert) {
   this.desserts.push(dessert);
+
+  for(var j = 0; j < menu.desserts.length; j++) {
+    if(dessert === menu.desserts[j].name) {
+      this.totalPrice += menu.desserts[j].price;
+    }
+  }
 }
 
 Order.prototype.addExtra = function(extra) {
   this.extras.push(extra);
-}
-
-Order.prototype.calculateTotal =  function() {
-  for(var i = 0; i < this.drinks.length; i++) {
-    for(var j = 0; j < menu.drinks.length; j++) {
-      if(this.drinks[i] === menu.drinks[j].name) {
-        this.totalPrice += menu.drinks[j].price;
-        break;
-      }
-    }
-  }
-
-  for(var i = 0; i < this.desserts.length; i++) {
-    for(var j = 0; j < menu.desserts.length; j++) {
-      if(this.desserts[i] === menu.desserts[j].name) {
-        this.totalPrice += menu.desserts[j].price;
-        break;
-      }
-    }
-  }
-
-  for(var i = 0; i < this.extras.length; i++) {
-    for(var j = 0; j < menu.extras.length; j++) {
-      if(this.extras[i] === menu.extras[j].name) {
-        this.totalPrice += menu.extras[j].price;
-        break;
-      }
+  for(var j = 0; j < menu.extras.length; j++) {
+    if(extra === menu.extras[j].name) {
+      this.totalPrice += menu.extras[j].price;
     }
   }
 }
