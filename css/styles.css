@@ -1,6 +1,6 @@
 body {
   background-image: url("../img/wild_flowers.png");
-  position: fixed;
+  background-position: fixed;
   height:100%;
   width: 100%;
 }
@@ -19,4 +19,22 @@ body {
 img {
   width: 50px;
   display: inline-block;
+}
+.nav-pills {
+  width: 150px;
+  padding: 10px;
+  background-color: rgba(168,168,192, .5);
+}
+.nav-pills li a:hover {
+  background-color: rgba(240,216,216, .8);
+}
+.nav-pills li a {
+  font-size: 1.5em;
+  color: #181860;
+}
+#pizza-size {
+  display: none;
+}
+#add-items {
+  display: none;
 }
