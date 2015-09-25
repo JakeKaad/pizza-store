@@ -46,7 +46,7 @@ Order.prototype.addDrink = function(drink) {
 }
 
 Order.prototype.addDessert = function(dessert) {
-  this.dessserts.push(dessert);
+  this.desserts.push(dessert);
 }
 
 Order.prototype.addExtra= function(extra) {

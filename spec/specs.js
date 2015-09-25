@@ -55,3 +55,30 @@ describe('addPizza', function() {
      expect(newOrder.totalPrice).to.equal(26);
   });
 });
+
+describe('addDrink', function() {
+      it("Adds a drink to the order", function() {
+        var newOrder = new Order();
+        newOrder.addDrink("Pepsi");
+        newOrder.addDrink("Coke");
+        expect(newOrder.drinks[1]).to.equal("Coke");
+  });
+});
+
+describe('addDessert', function() {
+      it("Adds a dessert to the order", function() {
+        var newOrder = new Order();
+        newOrder.addDessert("Cookies");
+        newOrder.addDessert("Cinna Stix");
+        expect(newOrder.desserts[1]).to.equal("Cinna Stix");
+  });
+});
+
+describe('addExtra', function() {
+      it("Adds extras to the order", function() {
+        var newOrder = new Order();
+        newOrder.addExtra("garlic butter");
+        newOrder.addExtra("marinara");
+        expect(newOrder.extras[0]).to.equal("garlic butter");
+  });
+});
