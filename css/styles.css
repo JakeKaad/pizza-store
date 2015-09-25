@@ -1,0 +1,22 @@
+body {
+  background-image: url("../img/wild_flowers.png");
+  position: fixed;
+  height:100%;
+  width: 100%;
+}
+.jumbotron {
+  margin-top: 20px;
+  background-color: rgba(204, 204, 204, 0.1);
+  border: #181860 4px dotted;
+  border-radius: 20px;
+}
+
+.jumbotron h1 {
+  color: #181860;
+  font-family: 'Indie Flower', cursive;  text-align: center;
+  background-color: rgba(204, 204, 204, 0.1);
+}
+img {
+  width: 50px;
+  display: inline-block;
+}

@@ -86,6 +86,21 @@ describe('addDessert', function() {
   });
 });
 
+describe('addSide', function() {
+  it("Adds a side to the order", function() {
+      var newOrder = new Order();
+      newOrder.addSide("Cheese Sticks");
+      newOrder.addSide("Bread Sticks");
+      expect(newOrder.sides[1]).to.equal("Bread Sticks");
+  });
+  it("Updates total price of order", function() {
+      var newOrder = new Order();
+      newOrder.addSide("Cheese Sticks");
+      newOrder.addSide("Bread Sticks");
+      expect(newOrder.totalPrice).to.equal(14);
+  });
+});
+
 describe('addExtra', function() {
   it("Adds extras to the order", function() {
       var newOrder = new Order();
