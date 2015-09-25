@@ -1,8 +1,12 @@
 
 var displayMenuItems = function(menuType) {
+  $("#add-items").removeClass();
   $("#add-items").show();
+  $("#add-items").addClass(menuType);
   $("#pizza-size").hide();
   $("#display-items").empty();
+  $("#add-items").addClass("pizza-menu");
+
   (menu[menuType]).forEach(function(item) {
     $("#display-items").append("<li><input type='checkbox' name=" + menuType + "\"" + "value=" + item.name + "\"" + ">" + item.name +  " " + item.price + "</li>")
   });

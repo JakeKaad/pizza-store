@@ -32,6 +32,11 @@ img {
   font-size: 1.5em;
   color: #181860;
 }
+#cart{
+  background-color: rgba(168,168,192,.8);
+  min-height: 200px;
+  max-width: 200px;
+}
 #pizza-size {
   display: none;
 }
