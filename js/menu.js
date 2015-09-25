@@ -1,4 +1,4 @@
-{
+var menu = {
   "toppings": [
       {
         "name": "mushrooms",
