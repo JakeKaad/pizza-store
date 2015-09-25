@@ -27,3 +27,28 @@ Pizza.prototype.calculatePrice = function(menu) {
     }
   }
 }
+
+function Order() {
+  this.totalPrice = 0;
+  this.pizzas = [];
+  this.drinks = [];
+  this.desserts = [];
+  this.extras = [];
+}
+
+Order.prototype.addPizza = function(pizza) {
+  this.pizzas.push(pizza);
+  this.totalPrice += pizza.price;
+}
+
+Order.prototype.addDrink = function(drink) {
+  this.drinks.push(drink);
+}
+
+Order.prototype.addDessert = function(dessert) {
+  this.dessserts.push(dessert);
+}
+
+Order.prototype.addExtra= function(extra) {
+  this.extras.push(extra);
+}

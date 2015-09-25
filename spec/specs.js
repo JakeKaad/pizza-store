@@ -26,3 +26,32 @@ describe('calculatePrice', function() {
       expect(newPizza.price).to.equal(26);
    });
 });
+
+describe('Order', function() {
+    it("Instantiates order with price 0", function() {
+      var newOrder = new Order();
+      expect(newOrder.totalPrice).to.equal(0);
+   });
+});
+
+describe('addPizza', function() {
+    it("Adds a pizza to the order", function() {
+      var newPizza = new Pizza("large");
+      var newOrder = new Order();
+      newPizza.addTopping("jalapenos");
+      newPizza.addTopping("garlic");
+      newPizza.addTopping("bacon");
+      newOrder.addPizza(newPizza);
+      expect(newOrder.pizzas[0].toppings[1]).to.equal("garlic");
+   });
+   it("Updates the total price of order", function() {
+     var newPizza = new Pizza("large");
+     var newOrder = new Order();
+     newPizza.addTopping("jalapenos");
+     newPizza.addTopping("garlic");
+     newPizza.addTopping("bacon");
+     newPizza.calculatePrice(menu);
+     newOrder.addPizza(newPizza);
+     expect(newOrder.totalPrice).to.equal(26);
+  });
+});
