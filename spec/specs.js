@@ -82,3 +82,22 @@ describe('addExtra', function() {
         expect(newOrder.extras[0]).to.equal("garlic butter");
   });
 });
+
+describe('calculateTotal', function() {
+      it("Calculates order total", function() {
+        var newOrder = new Order();
+        var newPizza = new Pizza("large")
+        newPizza.addTopping("jalapenos");
+        newPizza.addTopping("garlic");
+        newPizza.addTopping("bacon");
+        newPizza.calculatePrice(menu);
+        newOrder.addPizza(newPizza);
+
+        newOrder.addExtra("garlic butter");
+        newOrder.addExtra("marinara");
+        newOrder.addDessert("Cinna Stix");
+        newOrder.addDrink("Pepsi");
+        newOrder.calculateTotal();
+        expect(newOrder.totalPrice).to.equal(36);
+  });
+});

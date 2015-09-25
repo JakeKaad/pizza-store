@@ -1,5 +1,6 @@
 var menu = {
-  "toppings": [
+  "toppings":
+  [
       {
         "name": "mushrooms",
         "price": 1
@@ -73,7 +74,6 @@ var menu = {
         "price": 2
       }
     ],
-  "extras": {
     "drinks":
     [
       {
@@ -128,7 +128,8 @@ var menu = {
         "price": 8
       }
     ],
-    "desert":
+
+    "desserts":
     [
       {
         "name": "Cookies",
@@ -147,6 +148,7 @@ var menu = {
         "price": 6
       }
     ],
+
     "extras":
     [
       {
@@ -166,5 +168,4 @@ var menu = {
         "price": 1
       }
     ]
-  }
 }

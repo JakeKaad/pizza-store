@@ -49,6 +49,35 @@ Order.prototype.addDessert = function(dessert) {
   this.desserts.push(dessert);
 }
 
-Order.prototype.addExtra= function(extra) {
+Order.prototype.addExtra = function(extra) {
   this.extras.push(extra);
+}
+
+Order.prototype.calculateTotal =  function() {
+  for(var i = 0; i < this.drinks.length; i++) {
+    for(var j = 0; j < menu.drinks.length; j++) {
+      if(this.drinks[i] === menu.drinks[j].name) {
+        this.totalPrice += menu.drinks[j].price;
+        break;
+      }
+    }
+  }
+
+  for(var i = 0; i < this.desserts.length; i++) {
+    for(var j = 0; j < menu.desserts.length; j++) {
+      if(this.desserts[i] === menu.desserts[j].name) {
+        this.totalPrice += menu.desserts[j].price;
+        break;
+      }
+    }
+  }
+
+  for(var i = 0; i < this.extras.length; i++) {
+    for(var j = 0; j < menu.extras.length; j++) {
+      if(this.extras[i] === menu.extras[j].name) {
+        this.totalPrice += menu.extras[j].price;
+        break;
+      }
+    }
+  }
 }
