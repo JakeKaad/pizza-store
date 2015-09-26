@@ -1,11 +1,13 @@
 
 var displayMenuItems = function(menuType) {
+  $("#intro-page").hide();
   $("#add-items").removeClass();
   $("#add-items").show();
   $("#add-items").addClass(menuType);
   $("#pizza-size").hide();
   $("#display-items").empty();
   $("#add-items").addClass("pizza-menu");
+  $("#page-description").text(menuType + ":");
 
   (menu[menuType]).forEach(function(item) {
     $("#display-items").append("<li><input type='checkbox' name="
@@ -16,10 +18,15 @@ var displayMenuItems = function(menuType) {
             + " >" + item.name +  " " + item.price + "</li>")
   });
 }
+var getPrice = function(category, item) {
+    for(var j = 0; j < menu[category].length; j++) {
+      if( menu[category][j].name === item) {
+        return menu[category][j].price;
+      }
+    }
+  }
 
-
-$(document).ready(function() {
-  var order = new Order;
+var showCategory = function() {
   $("#pizza-menu").click(function() {
     displayMenuItems("toppings");
     $("#pizza-size").show();
@@ -36,18 +43,35 @@ $(document).ready(function() {
   $("#extras-menu").click(function() {
     displayMenuItems("extras");
   });
+}
+
+var returnStringToppings = function(addedToppings) {
+  var toppingsString = "";
+  addedToppings.forEach(function(item) {
+    toppingsString += item + ", ";
+  });
+  toppingsString = toppingsString.substring(0, toppingsString.length - 2);
+  return toppingsString;
+}
+$(document).ready(function() {
+  var order = new Order;
+  showCategory();
 
   $("#add-items").click(function() {
     var classes = $(this).attr("class");
     var menuCatergory = classes.substr(0, classes.indexOf(" "));
 
-      event.preventDefault();
-      var selected_items = [];
-       $("input:checkbox:checked." + menuCatergory).map(function(){
-        selected_items.push($(this).val());
-      });
+    event.preventDefault();
+
+    var selected_items = [];
+     $("input:checkbox:checked." + menuCatergory).map(function(){
+      selected_items.push($(this).val());
+    });
       if(menuCatergory !== "toppings") {
         selected_items.forEach(function(item) {
+          var price = getPrice (menuCatergory, item);
+
+          console.log(price);
           if(menuCatergory === "drinks") {
             order.addDrink(item);
           } else if(menuCatergory === "sides") {
@@ -57,8 +81,8 @@ $(document).ready(function() {
           } else if(menuCatergory === "desserts") {
             order.addDessert(item);
           }
-          $("#cart-items").append("<li>" + item + "</li>");
-          $("#total-cost").text(order.totalPrice);
+          $("#cart-items").append("<li>" + item + " $" + price +  "</li><hr>");
+          $("#total-cost").text("Total Cost: $" + order.totalPrice);
         });
       } else if(menuCatergory === "toppings") {
           var size = $("#pizza-size").val();
@@ -67,10 +91,12 @@ $(document).ready(function() {
           selected_items.forEach(function(item) {
             pizza.addTopping(item);
           });
+
           pizza.calculatePrice(menu);
           order.addPizza(pizza);
-          $("#cart-items").append("<li>" + pizza.size + " with" + selected_items +  "</li>");
-          $("#total-cost").text(order.totalPrice);
+          $("#cart-items").append("<li>" + pizza.size + " pizza with " + returnStringToppings(selected_items)  + " " + pizza.price +  "</li><hr>");
+          $("#total-cost").text("Total Cost: $" + order.totalPrice);
       }
+          $("." + menuCatergory).attr('checked', false);
   });
 });

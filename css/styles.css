@@ -1,8 +1,13 @@
 body {
   background-image: url("../img/wild_flowers.png");
-  background-position: fixed;
+  background-attachment: fixed;
   height:100%;
   width: 100%;
+  font-family: 'Coming Soon', cursive;
+}
+li {
+  list-style: none;
+  font-size: 1.5em;
 }
 .jumbotron {
   margin-top: 20px;
@@ -20,8 +25,11 @@ img {
   width: 50px;
   display: inline-block;
 }
+img:hover {
+  width: 70px;
+}
 .nav-pills {
-  width: 150px;
+  width: 180px;
   padding: 10px;
   background-color: rgba(168,168,192, .5);
 }
@@ -32,14 +40,32 @@ img {
   font-size: 1.5em;
   color: #181860;
 }
+select {
+   margin-bottom: 10px;
+    border: 1px solid #111;
+   background: rgba(192,168,192, .8);
+   width: 150px;
+   padding: 5px 35px 5px 5px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   height: 34px;
+
+}
 #cart{
-  background-color: rgba(168,168,192,.8);
+  background-color: rgba(240,216,216,.5);
   min-height: 200px;
-  max-width: 200px;
+  max-width: 200px;;
 }
 #pizza-size {
   display: none;
 }
 #add-items {
   display: none;
+}
+button {
+  width: 100px;
+  height:30px;
+  border-radius: 10px;
+  background-color: #181860;
+  color: white;
 }
