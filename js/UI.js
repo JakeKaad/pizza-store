@@ -8,12 +8,18 @@ var displayMenuItems = function(menuType) {
   $("#add-items").addClass("pizza-menu");
 
   (menu[menuType]).forEach(function(item) {
-    $("#display-items").append("<li><input type='checkbox' name=" + menuType + "\"" + "value=" + item.name + "\"" + ">" + item.name +  " " + item.price + "</li>")
+    $("#display-items").append("<li><input type='checkbox' name="
+            + "\"" + menuType + "\""
+            + "value=" + "\"" + item.name + "\" "
+            + "id=" + "\"" +item.name + "\" "
+            + "class=" + "\"" + menuType + "\""
+            + " >" + item.name +  " " + item.price + "</li>")
   });
 }
 
 
 $(document).ready(function() {
+  var order = new Order;
   $("#pizza-menu").click(function() {
     displayMenuItems("toppings");
     $("#pizza-size").show();
@@ -29,5 +35,18 @@ $(document).ready(function() {
   });
   $("#extras-menu").click(function() {
     displayMenuItems("extras");
+  });
+
+  $("#add-items").click(function() {
+    var classes = $(this).attr("class");
+    var menuCatergory = classes.substr(0, classes.indexOf(" "));
+
+      event.preventDefault();
+      var selected-items = [];
+
+      var selected-items = $("input:checkbox:checked." + menuCatergory).map(function(){
+        searchIDs.push($(this).val());
+      });
+
   });
 });
