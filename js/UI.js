@@ -7,6 +7,7 @@ var displayMenuItems = function(menuType) {
   $("#pizza-size").hide();
   $("#display-items").empty();
   $("#add-items").addClass("pizza-menu");
+  $("#page-description").empty();
   $("#page-description").text(menuType + ":");
 
   (menu[menuType]).forEach(function(item) {
@@ -53,6 +54,20 @@ var returnStringToppings = function(addedToppings) {
   toppingsString = toppingsString.substring(0, toppingsString.length - 2);
   return toppingsString;
 }
+
+var clearOrder = function() {
+  $("#intro-page").show();
+  $("#add-items").removeClass();
+  $("#add-items").show();
+  $("#pizza-size").hide();
+  $("#display-items").empty();
+  $("#cart-items").empty();
+  $("#total-cost").empty();
+  $("#total-cost").text("$ 0.00");
+  $("#add-items").addClass("pizza-menu");
+  $("#page-description").empty();
+  $("#page-description").text(menuType + ":");
+}
 $(document).ready(function() {
   var order = new Order;
   showCategory();
@@ -94,9 +109,14 @@ $(document).ready(function() {
 
           pizza.calculatePrice(menu);
           order.addPizza(pizza);
-          $("#cart-items").append("<li>" + pizza.size + " pizza with " + returnStringToppings(selected_items)  + " " + pizza.price +  "</li><hr>");
+          $("#cart-items").append("<li>" + pizza.size + " pizza with " + returnStringToppings(selected_items)  + " $" + pizza.price +  "</li><hr>");
           $("#total-cost").text("Total Cost: $" + order.totalPrice);
       }
           $("." + menuCatergory).attr('checked', false);
+  });
+
+  $("#checkout").click(function() {
+    order.destroy;
+    clearOrder();
   });
 });

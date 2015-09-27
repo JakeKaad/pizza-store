@@ -12,12 +12,12 @@ li {
 .jumbotron {
   margin-top: 20px;
   background-color: rgba(204, 204, 204, 0.1);
-  border: #181860 4px dotted;
+  border: #44515A 4px dotted;
   border-radius: 20px;
 }
 
 .jumbotron h1 {
-  color: #181860;
+  color: #44515A;
   font-family: 'Indie Flower', cursive;  text-align: center;
   background-color: rgba(204, 204, 204, 0.1);
 }
@@ -31,19 +31,19 @@ img:hover {
 .nav-pills {
   width: 180px;
   padding: 10px;
-  background-color: rgba(168,168,192, .5);
+  background-color: rgba(210,188,139, .5);
 }
 .nav-pills li a:hover {
-  background-color: rgba(240,216,216, .8);
+  background-color: rgba(198,172,77, .8);
 }
 .nav-pills li a {
   font-size: 1.5em;
-  color: #181860;
+  color: #44515A;
 }
 select {
    margin-bottom: 10px;
     border: 1px solid #111;
-   background: rgba(192,168,192, .8);
+   background: rgba(198,172,77, .8);
    width: 150px;
    padding: 5px 35px 5px 5px;
    font-size: 16px;
@@ -52,7 +52,7 @@ select {
 
 }
 #cart{
-  background-color: rgba(240,216,216,.5);
+  background-color: rgba(54,46,43,.2);
   min-height: 200px;
   max-width: 200px;;
 }
@@ -66,6 +66,6 @@ button {
   width: 100px;
   height:30px;
   border-radius: 10px;
-  background-color: #181860;
+  background-color: #44515A;
   color: white;
 }
